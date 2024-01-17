@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.index');
 });
+Route::controller(InvoiceController::class)->group(function () {
+    route::get('/all-invoice', 'all_invoice');
+    route::get('/create-invoice', 'create_invoice')->name('invoice.create');
+    route::post('/store-invoice', 'store_invoice');
+});
+
+Route::get('/customer-list', [CustomerController::class, 'CustomerList']);
+Route::get('/product-list', [ProductController::class, 'allProductList']);

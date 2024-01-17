@@ -1,0 +1,20 @@
+div#tableData_wrapper {
+    overflow: hidden;
+    padding: 30px;
+}
+th, td {
+    padding: 8px 15px;
+}
+table {
+    background: none;
+}
+tr{
+    border-bottom: 1px solid #f3f3f3;
+}
+.modal{
+    z-index: 10;
+}
+.modal-backdrop.show {
+    opacity: var(--bs-backdrop-opacity);
+    display: none !important;
+}
